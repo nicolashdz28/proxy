@@ -61,10 +61,21 @@ public class Main {
 ### 🤔 Preguntas de Análisis
 
 * Carga Perezosa: ¿Cuándo se ejecuta el constructor de RealImage en el código original vs en el código con Proxy?
+R=En el código original, el constructor de RealImage se ejecuta inmediatamente cuando se crea el objeto, aunque todavía no se utilice la imagen.
+
+En el código con Proxy, el constructor de RealImage se ejecuta hasta que realmente se necesita utilizar la imagen
 * Transparencia: ¿El código cliente necesita saber si está trabajando con un Proxy o con el objeto real? ¿Por qué?
+R=No, no necesita saberlo porque al final implementan la misma interfaz y ofrecen los mismos metodos 
 * Rendimiento: ¿Qué ventajas de rendimiento ofrece el patrón Proxy en este escenario?
+R=El proxy es mejor porque no carga imagenes que no se hayan realizado 
 * Control de Acceso: Además de la carga perezosa, ¿qué otros tipos de control podríamos implementar en el Proxy? (Ej: verificación de permisos, logging, cache)
+R=Verificación de permisos: comprobar si el usuario tiene autorización para acceder a una imagen.
+Logging: registrar cuándo y quién accede a una imagen.
+Caché: guardar imágenes ya utilizadas para evitar cargarlas varias veces.
+Control de acceso: restringir el uso de ciertos recursos según las condiciones establecidas.
+Validación: comprobar que las solicitudes sean correctas antes de permitir el acceso al objeto real.
 * Principio SOLID: ¿Qué principio SOLID se aplica aquí al permitir que el Proxy y el RealImage implementen la misma interfaz?
+R=Principalmente el Principio de Sustitución de Liskov (LSP), que establece que los objetos de una clase deben poder sustituirse por objetos de otra clase que implementen el mismo contrato, sin alterar el funcionamiento del programa.
 
 ### 🧪 Pruebas a Realizar
 
